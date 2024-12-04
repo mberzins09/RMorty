@@ -19,14 +19,6 @@ jobs:
       run: npm run build
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Start JSON Server
-      run: npm run server & # Run in background
-    - name: Start Vite Dev Server
-      run: npm run dev & # Run in background
-    - name: Wait for servers to start
-      run: |
-        npx wait-on http://localhost:5173
-        npx wait-on http://localhost:3000
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4
