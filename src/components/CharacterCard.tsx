@@ -1,5 +1,4 @@
 import { Character } from "../types/types";
-import { useFavorites } from '../hooks/useFavorites'
 
 interface CharacterComponentProps {
   character: Character;

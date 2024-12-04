@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server db.json --watch --port 3000"
+    "server": "json-server db.json --watch --port 3000",
+    "test:h": "playwright test --headed",
+    "test": "playwright test"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.2",
