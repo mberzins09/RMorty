@@ -82,6 +82,6 @@ test.describe('Rick and Morty App', () => {
 
 test.describe('Rick', () => {
   test('should display header', async ({ page }) => {
-    await expect(page.getByText('Rick & Morty')).toBeVisible();
+    await expect(page.getByText('Rick & Morty')).toBeVisible(); 
   });
 });
