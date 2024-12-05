@@ -60,10 +60,28 @@ test.describe('Rick and Morty App', () => {
     const dbData = JSON.parse(fs.readFileSync('db.json', 'utf-8'));
     expect(dbData.favorites.length).toBeGreaterThan(0);
   });
+
+  test('filtering by status "Alive" shows only alive characters', async ({ page }) => {
+    // Select "Alive" from the first status filter dropdown
+    await page.selectOption('select:nth-child(1)', { label: 'Alive' });
+    
+    // Wait for filtering to apply
+    await page.waitForTimeout(1000);
+    
+    // Get all character cards
+    const characterCards = await page.locator('.relative.rounded-lg.overflow-hidden').all();
+    expect(characterCards.length).toBeGreaterThan(0);
+    
+    // Check each card's status text
+    for (const card of characterCards) {
+      const statusText = await card.locator('p', { hasText: 'Status:' }).textContent();
+      expect(statusText).toContain('Status: Alive');
+    }
+  });
 });
 
 test.describe('Rick', () => {
   test('should display header', async ({ page }) => {
-    await expect(page.getByText('Rick and Morty')).toBeVisible();
+    await expect(page.getByText('Rick & Morty')).toBeVisible();
   });
 });
