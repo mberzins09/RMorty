@@ -22,7 +22,7 @@ const CharacterCard = ({
       <div className="p-6 flex-grow backdrop-blur-sm"> 
         <h2 className="text-2xl font-semibold mb-3 hover:text-blue-500 transition-colors duration-300">{character.name}</h2>
         <p className="text-gray-700 text-lg hover:text-blue-500 transition-colors duration-300">Status: {character.status}</p>
-        <p className="text-gray-700 text-lg hover:text-blue-500 transition-colors duration-300">Species: {character.species}</p>
+        <p className="text-gray-700 text-lg hover:text-blue-500 transition-colors duration-300">Gender: {character.gender}</p>
       </div>
     </div>
   );
